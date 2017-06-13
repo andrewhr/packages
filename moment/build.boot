@@ -4,8 +4,8 @@
 
 (require '[cljsjs.boot-cljsjs.packaging :refer :all])
 
-(def +lib-version+ "2.17.1")
-(def +version+ (str +lib-version+ "-1"))
+(def +lib-version+ "2.18.1")
+(def +version+ (str +lib-version+ "-0"))
 
 (task-options!
   push {:ensure-clean false}
@@ -42,7 +42,7 @@
 (deftask package []
   (comp
     (download :url (format "https://github.com/moment/moment/archive/%s.zip" +lib-version+)
-              :checksum "9d51871a95c2314ddd9b614eccd8e88f"
+              :checksum "8a96ef40bd6ccb05b3665285c8c28ee9"
               :unzip true)
     ; Locale files are not immediately named .inc.js as we don't want deps-cljs to find them
     (sift :move {#"^moment-[^\/]*/moment\.js"          "cljsjs/development/moment.inc.js"
